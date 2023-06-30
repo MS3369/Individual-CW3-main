@@ -16,6 +16,7 @@
         "bootstrap-vue": "^2.23.1",
         "core-js": "^3.8.3",
         "nodemon": "^2.0.22",
+        "server": "^1.0.38",
         "sweetalert2": "^11.7.3",
         "vue": "^2.7.14"
     },

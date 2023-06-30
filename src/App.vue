@@ -1,9 +1,9 @@
 <template>
   <div id="app" style="margin: 0">
-    <title>Darsgah School</title>
+    <title>AfterSchool club</title>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container px-4 px-lg-5">
-        <h3 class="navbar-logo ms-0 me-4" style="width: 15%">Darsgah School</h3>
+        <h3 class="navbar-logo ms-0 me-4" style="width: 15%">AfterSchool club</h3>
         <button
           class="navbar-toggler"
           type="button"
@@ -26,8 +26,7 @@
                 v-if="page === 'home'"
                 onmouseover="this.style.outline='1px solid black'; this.style.borderRadius='5px';"
                 onmouseout="this.style.outline='none';"
-                >Home</a
-              >
+                >Home</a>
             </li>
             <li class="nav-item">
               <a
@@ -101,10 +100,10 @@
           flex-direction: column;
         "
       >
-        <h1 class="text-white" style="text-align: center">Welcome to Darsgah School</h1>
-        <p class="text-white">
+        <h1 class="text-white" style="text-align: center">After School Club welcomes you !</h1>
+        <!-- <p class="text-white">
           Discover the perfect after-school class for your child at Darsgah School
-        </p>
+        </p> -->
         <!-- <h1 class="text-white">Book Now</h1> -->
         <button
           class="btn btn-dark btn-lg"
@@ -141,7 +140,7 @@
       ></checkOut>
     </div>
 
-    <footer class="py-5 bg-dark" v-if="page === 'home'">
+    <!-- <footer class="py-5 bg-dark" v-if="page === 'home'">
       <div class="container">
         <div class="row align-items-center">
           <div class="col-12 col-sm-6 mb-3 mb-sm-0 text-center text-sm-start">
@@ -170,7 +169,7 @@
           </div>
         </div>
       </div>
-    </footer>
+    </footer> -->
   </div>
 </template>
 

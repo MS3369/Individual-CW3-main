@@ -1,8 +1,10 @@
 const path = require('path');
 const fs = require('fs');
 const cors = require('cors');
+const axios = require(axios);
 const express = require('express');
 const { ObjectId } = require('mongodb');
+const { default: axios } = require('axios');
 const MongoClient = require('mongodb').MongoClient;
 
 const app = express();
@@ -12,13 +14,14 @@ app.use(cors());
 app.use((req, res, next) => {
     console.log(req.url);
     next();
-});
+});s
 
-MongoClient.connect("mongodb+srv://fahadkhan09922:individualproject@cluster0.5ud924m.mongodb.net/", (err, client) => {
+
+MongoClient.connect("mongodb+srv://sualehkhalifa:1234shah@cluster0.e0jwpze.mongodb.net/", (err, client) => {
     if (err) {
         console.error('Error connecting to the database:', err);
     } else {
-        const db = client.db('cw2');
+        const db = client.db('LessonClub');
         console.log("Database connected");
 
         // Create Lesson Model
@@ -88,7 +91,7 @@ MongoClient.connect("mongodb+srv://fahadkhan09922:individualproject@cluster0.5ud
             const order = req.body; // Assuming the order data is sent in the request body
 
             // Get the reference to the orders collection in MongoDB
-            const ordersCollection = client.db(cw2).collection('order');
+            const ordersCollection = client.db(LessonClub).collection('order');
 
             // Insert the order into MongoDB
             ordersCollection.insertOne(order, (err, result) => {

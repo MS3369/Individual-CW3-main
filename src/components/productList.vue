@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div >
     <header class="bg-dark py-5">
       <div class="container px-4 px-lg-5 my-5">
         <div class="text-center text-white">
@@ -133,6 +133,7 @@ export default {
       console.error(error);
     });
 },
+
     searchProducts() {
       this.filteredProducts = this.products.filter(product =>
         product.subject.toLowerCase().includes(this.search.toLowerCase())
@@ -186,6 +187,8 @@ export default {
       console.error(error);
     });
 },
+
+
 
   computed: {
     // filteredProducts() {
