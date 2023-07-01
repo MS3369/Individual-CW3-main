@@ -42,7 +42,7 @@
                       class="form-control"
                       id="firstName"
                       v-model="user.name"
-                      placeholder="Please enter your Name"
+                      placeholder="Please enter your name"
                       required
                     />
                   </div>
@@ -67,7 +67,6 @@
                 <button  class="w-100 btn btn-primary btn-lg" value="Checkout" @click="submitCheckout"  style="margin-bottom: 25px">
               Checkout
             </button>
-
               </form>
             </div>
           </div>
@@ -82,8 +81,14 @@
       return {
         states: {
       },
-    
-       };
+      cart: [], // Assuming you have a cart array with items
+      user: {
+        name: "",
+        email: "",
+        method: "Home",
+        gift: false,
+      },
+      };
     },
     computed: {
       cartTotal() {
@@ -104,7 +109,7 @@ cartCount() {
     navigateTo(page) {
       this.page = page;
     },
-    submitCheckout() {
+submitCheckout() {
       // Update the space property of lessons in the cart
       this.cart.forEach((item) => {
         const lessonIndex = this.lessons.findIndex(
@@ -119,6 +124,10 @@ cartCount() {
       const order = {
         checkoutName: this.user.name,
         checkoutemail: this.user.email,
+        checkoutaddress: this.user.address,
+        checkoutstate: this.user.state,
+        checkoutphone: this.user.phone,
+
         cartProduct: this.cart,
       };
 
@@ -130,7 +139,7 @@ cartCount() {
         },
         mode: "cors",
         cache: "no-store",
-        body : JSON.stringify(order),
+        body: JSON.stringify(order),
       })
         .then((response) => response.json())
         .then((data) => {
@@ -149,22 +158,14 @@ cartCount() {
       this.user = {
         name: "",
         email: "",
-        //method: "Home",
-        
+        address: "",
+        city: "",
+        phone: "",
+        state: "",
+        method: "Home",
+        gift: false,
       };
-      
     },
-    
-            cart: [], // Assuming you have a cart array with items
-      user: {
-        name: "",
-        email: "",
-        //method: "Home",
-        
-      },
-
-
-
 
 
 
