@@ -1,5 +1,5 @@
 {
-  "name": "After School club",
+  "name": "AfterSchoolclub",
   "version": "0.1.0",
   "private": true,
   "main": "nodemon server.js",
