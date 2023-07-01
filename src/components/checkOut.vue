@@ -42,7 +42,7 @@
                       class="form-control"
                       id="firstName"
                       v-model="user.name"
-                      placeholder="Please enter your name"
+                      placeholder="Please enter your Name"
                       required
                     />
                   </div>
@@ -149,7 +149,7 @@ cartCount() {
       this.user = {
         name: "",
         email: "",
-        method: "Home",
+        //method: "Home",
         
       };
       
@@ -159,7 +159,7 @@ cartCount() {
       user: {
         name: "",
         email: "",
-        method: "Home",
+        //method: "Home",
         
       },
 
