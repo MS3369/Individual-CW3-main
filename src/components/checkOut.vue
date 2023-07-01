@@ -65,7 +65,7 @@
                 <hr class="my-4" />
 
                 <button
-                  class="w-100 btn btn-primary btn-lg bakcground color:grey"
+                  class="w-100 btn btn-primary btn-lg"
                   type="submit"
                   v-on:click="onSubmitCheckout"
                   style="margin-bottom: 25px"
@@ -118,5 +118,5 @@ cartCount() {
   </script>
 
   <style>
-  /* Add custom styles here */
+
   </style>
