@@ -51,7 +51,7 @@
                       Remove From Cart
                     </button>
                     <button
-                      class="btn btn-outline-dark mt-auto"
+                    onSubmitCheckout                      class="btn btn-outline-dark mt-auto"
                       @click="reduceQuantity(product)"
                       v-else
                     >
