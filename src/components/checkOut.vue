@@ -31,10 +31,10 @@
                   </div>
                   <span class="text-muted">{{product.price}}</span>
                 </li>
-                <li class="list-group-item d-flex justify-content-between">
+                <!-- <li class="list-group-item d-flex justify-content-between">
                   <span>Total (AED)</span>
                   <strong>{{cartTotal}}</strong>
-                </li>
+                </li> -->
               </ul>
             </div>
 

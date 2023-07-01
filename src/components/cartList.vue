@@ -2,7 +2,7 @@
   <div class="container my-5">
     <h2 class="mb-4">Cart</h2>
     <div v-if="cartCount === 0" class="alert alert-info" role="alert">
-      Your cart is empty
+      Please add items to your cart
     </div>
     <div v-else>
       <section class="py-5">
