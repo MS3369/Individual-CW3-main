@@ -1,8 +1,8 @@
 <template>
   <div id="app" style="margin: 0">
     <title>After School club</title>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container px-4 px-lg-5">
+    <nav class="navbar navbar-expand-lg navbar-light ">
+      <div class="container px-4 px-lg-5 ">
         <h1 class = "navbar-logo ms-0 me-4" style="width: 75%">After School club </h1>
         <button
           class="navbar-toggler"
@@ -56,6 +56,7 @@
           justify-content: center;
           height: 70vh;
           flex-direction: column;
+          background-color: skyblue;
         "
       >
         <h1 class="text-white" style="text-align: center"> Your After School Learning Club</h1>
@@ -65,8 +66,7 @@
           type="submit"
           v-on:click="navigateTo('products')"
           style="text-align: center; margin-top: 25px"
-        >
-          Browse Here
+        >          Browse Here
         </button>
       </div>
     </section>
@@ -103,7 +103,7 @@
 import ProductList from "./components/productList.vue";
 import Cart from "./components/cartList.vue";
 import checkOut from "./components/checkOut.vue";
-import Swal from "sweetalert2";
+
 
 export default {
   name: "App",
@@ -135,26 +135,9 @@ export default {
   }
   product.cartquantity++;
   product.space--;
-      // if (!this.cart.includes(product)) {
-      //   this.cart.push(product);
-      // } else {
-      //   console.log("Product exists in cart");
-      // }
-      // product.cartquantity++;
-      // product.space--;
-
-      Swal.fire(
-        "Added to Cart!",
-        product.subject + " has been added to your cart!",
-        "success"
-      );
+         
     },
-    // async created() {
-    //                 let course = await fetch("http://localhost:3000/lesson")
-    //                 let result = await course.json()
-    //                 this.lessons = result
-    //                 console.log(result)
-    //             },
+    
     removeFromCart(product) {
       product.cartquantity--;
   product.space--;
@@ -162,11 +145,7 @@ export default {
   if (index !== -1) {
     this.cart.splice(index, 1);
   }
-      Swal.fire(
-        "Removed from Cart!",
-        product.subject + " has been removed from your cart!",
-        "success"
-      );
+      
     },
 
     reduceQuantity(product) {
@@ -202,7 +181,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color:green;
   margin-top: 60px;
 }
 
@@ -212,7 +191,7 @@ export default {
 }
 
 .home-section {
-  background-color: coral;
+  background-color:black;
   background-repeat: no-repeat;
   background-size: cover;
   height: 83.5vh;
@@ -222,6 +201,7 @@ export default {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  /* height: 83.5vh; */
+  background-color: greenyellow;
+  
 }
 </style>

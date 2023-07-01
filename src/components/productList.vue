@@ -7,7 +7,7 @@
           <input
             class="form-control mr-sm-2"
             type="text"
-            placeholder="🔍 Search"
+            placeholder=" Search here "
             v-model="search"
             v-on:input="filteredList"
           />
@@ -21,7 +21,7 @@
               @change="sortedLessons"
 
             >
-              <option value="subject">Alphabatically</option>
+              <option value="subject">Alphabetically</option>
               <option value="price">Price</option>
               <option value="space">Availability</option>
               <option value="location">location</option>
@@ -191,14 +191,7 @@ export default {
 
 
   computed: {
-    // filteredProducts() {
-    //   return this.products.filter((product) => {
-    //     return (
-    //       product.subject.toLowerCase().includes(this.search.toLowerCase()) ||
-    //       product.location.toLowerCase().includes(this.search.toLowerCase())
-    //     );
-    //   });
-    // },
+    
   },
 };
 </script>
