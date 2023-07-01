@@ -158,12 +158,7 @@ submitCheckout() {
       this.user = {
         name: "",
         email: "",
-        address: "",
-        city: "",
-        phone: "",
-        state: "",
         method: "Home",
-        gift: false,
       };
     },
 
