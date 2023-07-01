@@ -11,11 +11,7 @@
                   class=""
                   type="submit"
                 >
-                  <i class="bi-cart-fill me-1"></i>
-                  Cart
-                  <span class="badge bg-dark text-white ms-1 rounded-pill">{{
-                    cartCount
-                  }}</span>
+                
                 </a>
               </form>
               <ul class="list-group mb-3">
@@ -31,15 +27,12 @@
                   </div>
                   <span class="text-muted">{{product.price}}</span>
                 </li>
-                <!-- <li class="list-group-item d-flex justify-content-between">
-                  <span>Total (AED)</span>
-                  <strong>{{cartTotal}}</strong>
-                </li> -->
+                
               </ul>
             </div>
 
             <div class="col-md-7 col-lg-8">
-              <h4 class="mb-3">Billing address</h4>
+              <h4 class="mb-3">Billing information</h4>
               <form class="needs-validation" novalidate>
                 <div class="row g-3">
                   <div class="col-12">
@@ -49,7 +42,7 @@
                       class="form-control"
                       id="firstName"
                       v-model="order.name"
-                      placeholder="Name on ID"
+                      placeholder="Please enter your name"
                       required
                     />
                   </div>
@@ -65,91 +58,14 @@
                     />
                   </div>
 
-                  <div class="col-12">
-                    <label for="address" class="form-label">Address</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="address"
-                      placeholder="Apt 8602, Marina Heights Tower"
-                      v-model="order.address"
-                      required
-                    />
-                  </div>
-
-                  <div class="col-md-7">
-                    <label for="state" class="form-label">State</label>
-                    <select
-                      v-model="order.state"
-                      class="form-select"
-                      id="state"
-                      required
-                    >
-                      <option value="" disabled selected>Choose...</option>
-                      <option
-                        v-for="(state,key) in states" :key="key"
-                        v-bind:value="state"
-                      >
-                        {{key}}
-                      </option>
-                    </select>
-                  </div>
-
-                  <div class="col-md-5">
-                    <label for="zip" class="form-label">Zip</label>
-                    <input
-
-                      type="text"
-                      class="form-control"
-                      v-model.number="order.zip"
-                      id="zip"
-                      placeholder="00000"
-                      required
-                    />
-                  </div>
+                  
                 </div>
 
-                <!-- <div class="form-check">
-                  <input
-                    type="checkbox"
-                    class="form-check-input"
-                    id="same-address"
-                  />
-                  <label class="form-check-label" for="same-address"
-                    >Send as Gift</label
-                  >
-                </div>
-
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    id="home"
-                    value="Home"
-                    v-model="order.method"
-                  />
-                  <label class="form-check-label" for="flexRadioDefault1">
-                    Home
-                  </label>
-                </div>
-
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    id="business"
-                    value="Business"
-                    v-model="order.method"
-                  />
-                  <label class="form-check-label" for="flexRadioDefault1">
-                    Business
-                  </label>
-                </div> -->
-
+                
                 <hr class="my-4" />
 
                 <button
-                  class="w-100 btn btn-primary btn-lg"
+                  class="w-100 btn btn-primary btn-lg bakcground color:grey"
                   type="submit"
                   v-on:click="onSubmitCheckout"
                   style="margin-bottom: 25px"
@@ -169,22 +85,11 @@
     data() {
       return {
         states: {
-        AUH: "Abu Dhabi",
-        AJM: "Ajman",
-        DXB: "Dubai",
-        FUJ: "Fujairah",
-        RAK: "Ras Al Khaimah",
-        SHJ: "Sharjah",
-        UMM: "Umm Al Quwain",
       },
       cart: [], // Assuming you have a cart array with items
       order: {
         name: "",
         email: "",
-        address: "",
-        city: "",
-        zip: "",
-        state: "",
         method: "Home",
         gift: false,
       },
