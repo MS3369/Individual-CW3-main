@@ -1,11 +1,8 @@
 const path = require('path');
 const fs = require('fs');
 const cors = require('cors');
-const axios = require(axios);
 const express = require('express');
-const { ObjectId } = require('mongodb');
-const { default: axios } = require('axios');
-const MongoClient = require('mongodb').MongoClient;
+const { ObjectId, MongoClient } = require('mongodb');
 
 const app = express();
 
@@ -14,10 +11,12 @@ app.use(cors());
 app.use((req, res, next) => {
     console.log(req.url);
     next();
-});s
+});
 
+const uri = "mongodb+srv://sualehkhalifa:1234shah@cluster0.e0jwpze.mongodb.net/";
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
-MongoClient.connect("mongodb+srv://sualehkhalifa:1234shah@cluster0.e0jwpze.mongodb.net/", (err, client) => {
+client.connect(err => {
     if (err) {
         console.error('Error connecting to the database:', err);
     } else {
@@ -26,6 +25,7 @@ MongoClient.connect("mongodb+srv://sualehkhalifa:1234shah@cluster0.e0jwpze.mongo
 
         // Create Lesson Model
         const Lesson = db.collection('lesson');
+        const Order = db.collection('order');
 
         // Fetch all lessons
         app.get('/lesson', (req, res) => {
@@ -38,78 +38,42 @@ MongoClient.connect("mongodb+srv://sualehkhalifa:1234shah@cluster0.e0jwpze.mongo
             });
         });
 
-        app.param('collectionName', (req, res, next, collectionName) => {
-            req.collection = db.collection(collectionName);
-            return next();
-        });
-
+        // Fetch all documents from a collection
         app.get('/collection/:collectionName', (req, res, next) => {
-            req.collection.find({}).toArray((e, results) => {
-                if (e) return next(e);
+            const collection = db.collection(req.params.collectionName);
+            collection.find({}).toArray((err, results) => {
+                if (err) return next(err);
                 res.send(results);
             });
         });
 
+        // Insert a document into a collection
         app.post('/collection/:collectionName', (req, res, next) => {
-            req.collection.insert(req.body, (e, results) => {
-                if (e) return next(e);
-                let response = { "message": "success" };
-                res.send(response);
+            const collection = db.collection(req.params.collectionName);
+            collection.insertOne(req.body, (err, result) => {
+                if (err) return next(err);
+                res.send({ message: 'success' });
             });
         });
 
-        // Update an object
+        // Update a document in a collection
         app.put('/collection/:collectionName/:id', (req, res, next) => {
-            let id = new ObjectId(req.params.id);
-            req.collection.updateOne({ _id: id }, { $set: req.body }, { safe: true, multi: false },
-                (e, result) => {
-                    if (e) return next(e);
+            const collection = db.collection(req.params.collectionName);
+            const id = new ObjectId(req.params.id);
+            collection.updateOne({ _id: id }, { $set: req.body }, { safe: true, multi: false },
+                (err, result) => {
+                    if (err) return next(err);
                     res.send(result.modifiedCount === 1 ? { msg: 'success' } : { msg: 'error' });
                 });
         });
 
-        // Search
-        app.get('/collection/:collectionName/search', (req, res, next) => {
-            let query_str = req.query.key_word;
-            req.collection.find({}).toArray((e, results) => {
-                if (e) return next(e);
-                let newList = results.filter((lesson) => {
-                    return lesson.subject.toLowerCase().match(query_str) || lesson.location.toLowerCase().match(query_str);
-                });
-                res.send(newList);
-            });
-        });
-        //Order
-        // app.post('/collection/order', (req, res, next) => {
-        //     req.collection.insert(req.body, (e, result) => {
-        //         if (e) return next(e);
-        //         let response = { "message": "success" };
-        //         res.send(response);
-        //     });
-        // });
-        app.post('/collection/orders', (req, res) => {
-            const order = req.body; // Assuming the order data is sent in the request body
-
-            // Get the reference to the orders collection in MongoDB
-            const ordersCollection = client.db(LessonClub).collection('order');
-
-            // Insert the order into MongoDB
-            ordersCollection.insertOne(order, (err, result) => {
-                if (err) {
-                    console.error('Error inserting order:', err);
-                    res.status(500).send('Error inserting order');
-                    return;
-                }
-
-                res.json({ message: 'Order inserted successfully' });
-            });
-        });
+        // Search for lessons by keyword
         app.get('/collection/lesson/search', (req, res, next) => {
-            let query_str = req.query.key_word;
+            const queryStr = req.query.key_word;
             Lesson.find({
                 $or: [
-                    { subject: { $regex: query_str, $options: 'i' } },
-                    { location: { $regex: query_str, $options: 'i' } }
+                    { subject: { $regex: queryStr, $options: 'i' } },
+                    { location: { $regex: queryStr, $options: 'i' } }
                 ]
             }).toArray((err, lessons) => {
                 if (err) {
@@ -119,22 +83,27 @@ MongoClient.connect("mongodb+srv://sualehkhalifa:1234shah@cluster0.e0jwpze.mongo
                 }
             });
         });
-        app.use(function(req, res, next) {
-            var filePath = path.join(__dirname, "static", req.url);
-            fs.stat(filePath, function(err, fileInfo) {
+
+        // Insert an order
+        app.post('/collection/orders', (req, res) => {
+            const order = req.body;
+
+            Order.insertOne(order, (err, result) => {
                 if (err) {
-                    next();
+                    console.error('Error inserting order:', err);
+                    res.status(500).send('Error inserting order');
                     return;
                 }
-                if (fileInfo.isFile()) {
-                    res.sendFile(filePath);
-                } else {
-                    next();
-                }
+
+                res.json({ message: 'Order inserted successfully' });
             });
         });
 
-        app.use(function(req, res) {
+        // Serve static files
+        app.use(express.static(path.join(__dirname, 'static')));
+
+        // Handle 404 - File not found
+        app.use((req, res) => {
             res.status(404);
             res.send("File not found");
         });

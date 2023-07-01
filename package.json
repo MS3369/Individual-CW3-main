@@ -1,52 +1,58 @@
 {
-    "name": "DarsgahSchool",
-    "version": "0.1.0",
-    "private": true,
-    "scripts": {
-        "serve": "vue-cli-service serve",
-        "build": "vue-cli-service build",
-        "lint": "vue-cli-service lint"
+  "name": "DarsgahSchool",
+  "version": "0.1.0",
+  "private": true,
+  "main": "nodemon server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js",
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.4.0",
+    "@fortawesome/fontawesome-free-solid": "^5.0.13",
+    "@fortawesome/vue-fontawesome": "^2.0.10",
+    "axios": "^1.4.0",
+    "bootstrap": "^5.2.3",
+    "bootstrap-vue": "^2.23.1",
+    "core-js": "^3.8.3",
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "nodemon": "^2.0.22",
+    "sweetalert2": "^11.7.3",
+    "vue": "^2.7.14",
+    "node":"^17.7.2",
+    "save": "^2.5.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.16",
+    "@babel/eslint-parser": "^7.12.16",
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-plugin-eslint": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "eslint": "^7.32.0",
+    "eslint-plugin-vue": "^8.0.3",
+    "vue-template-compiler": "^2.6.14"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
     },
-    "dependencies": {
-        "@fortawesome/fontawesome-free": "^6.4.0",
-        "@fortawesome/fontawesome-free-solid": "^5.0.13",
-        "@fortawesome/vue-fontawesome": "^2.0.10",
-        "axios": "^1.4.0",
-        "bootstrap": "^5.2.3",
-        "bootstrap-vue": "^2.23.1",
-        "core-js": "^3.8.3",
-        "nodemon": "^2.0.22",
-        "server": "^1.0.38",
-        "sweetalert2": "^11.7.3",
-        "vue": "^2.7.14"
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "@babel/eslint-parser"
     },
-    "devDependencies": {
-        "@babel/core": "^7.12.16",
-        "@babel/eslint-parser": "^7.12.16",
-        "@vue/cli-plugin-babel": "~5.0.0",
-        "@vue/cli-plugin-eslint": "~5.0.0",
-        "@vue/cli-service": "~5.0.0",
-        "eslint": "^7.32.0",
-        "eslint-plugin-vue": "^8.0.3",
-        "vue-template-compiler": "^2.6.14"
-    },
-    "eslintConfig": {
-        "root": true,
-        "env": {
-            "node": true
-        },
-        "extends": [
-            "plugin:vue/essential",
-            "eslint:recommended"
-        ],
-        "parserOptions": {
-            "parser": "@babel/eslint-parser"
-        },
-        "rules": {}
-    },
-    "browserslist": [
-        "> 1%",
-        "last 2 versions",
-        "not dead"
-    ]
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
 }
