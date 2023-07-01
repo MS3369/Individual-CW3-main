@@ -1,5 +1,5 @@
 {
-  "name": "DarsgahSchool",
+  "name": "After School club",
   "version": "0.1.0",
   "private": true,
   "main": "nodemon server.js",

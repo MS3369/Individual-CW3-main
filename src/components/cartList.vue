@@ -55,17 +55,21 @@
                       @click="reduceQuantity(product)"
                       v-else
                     >
-                      Reduce Quantity from Cart
+                      Remove from Cart
                     </button>
                   </div>
                 </div>
               </div>
             </div>
+            
           </div>
         </div>
+        
       </section>
+
     </div>
   </div>
+  
 </template>
 
 <script>

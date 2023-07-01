@@ -1,9 +1,9 @@
 <template>
   <div id="app" style="margin: 0">
-    <title>AfterSchool club</title>
+    <title>After School club</title>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container px-4 px-lg-5">
-        <h3 class="navbar-logo ms-0 me-4" style="width: 15%">AfterSchool club</h3>
+        <h1 class = "navbar-logo ms-0 me-4" style="width: 75%">After School club </h1>
         <button
           class="navbar-toggler"
           type="button"
@@ -18,50 +18,8 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
             <li class="nav-item">
-              <a
-                class="nav-link-custom nav-link active"
-                v-on:click="navigateTo('home')"
-                aria-current="page"
-                style="cursor: pointer"
-                v-if="page === 'home'"
-                onmouseover="this.style.outline='1px solid black'; this.style.borderRadius='5px';"
-                onmouseout="this.style.outline='none';"
-                >Home</a>
             </li>
-            <li class="nav-item">
-              <a
-                class="nav-link-custom nav-link"
-                v-on:click="navigateTo('home')"
-                aria-current="page"
-                style="cursor: pointer"
-                v-if="page === 'products' || page === 'cart'"
-                onmouseover="this.style.outline='1px solid black'; this.style.borderRadius='5px';"
-                onmouseout="this.style.outline='none';"
-                >Home</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link-custom nav-link active"
-                v-on:click="navigateTo('products')"
-                style="cursor: pointer"
-                v-if="page === 'products'"
-                onmouseover="this.style.outline='1px solid black'; this.style.borderRadius='5px';"
-                onmouseout="this.style.outline='none';"
-                >Products</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link-custom nav-link"
-                v-on:click="navigateTo('products')"
-                style="cursor: pointer"
-                v-if="page === 'home' || page === 'cart'"
-                onmouseover="this.style.outline='1px solid black'; this.style.borderRadius='5px';"
-                onmouseout="this.style.outline='none';"
-                >Products</a
-              >
-            </li>
+          
           </ul>
           <form class="d-flex" style="margin-right: 15px">
             <a
@@ -100,18 +58,15 @@
           flex-direction: column;
         "
       >
-        <h1 class="text-white" style="text-align: center">After School Club welcomes you !</h1>
-        <!-- <p class="text-white">
-          Discover the perfect after-school class for your child at Darsgah School
-        </p> -->
-        <!-- <h1 class="text-white">Book Now</h1> -->
+        <h1 class="text-white" style="text-align: center"> Your After School Learning Club</h1>
+  
         <button
           class="btn btn-dark btn-lg"
           type="submit"
           v-on:click="navigateTo('products')"
           style="text-align: center; margin-top: 25px"
         >
-          Book Now
+          Browse Here
         </button>
       </div>
     </section>
@@ -140,36 +95,7 @@
       ></checkOut>
     </div>
 
-    <!-- <footer class="py-5 bg-dark" v-if="page === 'home'">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-12 col-sm-6 mb-3 mb-sm-0 text-center text-sm-start">
-            <p class="m-0 text-white">© 2023 Darsgah School</p>
-          </div>
-          <div class="col-12 col-sm-6 text-center text-sm-end">
-            <ul class="list-inline mb-0">
-              <li class="list-inline-item me-3">
-                <a href="https://github.com/umairdadaa">
-                  <i class="fab fa-github fa-2x text-white"></i>
-                </a>
-              </li>
-              <li class="list-inline-item me-3">
-                <a href="mailto:m.umairrr@outlook.com">
-                  <i class="far fa-envelope fa-2x text-white"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a
-                  href="https://www.linkedin.com/in/muhammad-umair-dada-865501196/"
-                >
-                  <i class="fab fa-linkedin-in fa-2x text-white"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </footer> -->
+    
   </div>
 </template>
 
